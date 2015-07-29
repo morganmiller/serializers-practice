@@ -54,7 +54,7 @@ describe PoptartsController do
 
       expect(response).to have_http_status(:no_content)
       expect(poptart.reload.flavor).to eq('french toast')
-      expect(poptart.reload.sprinkles).to eq('brown')
+      expect(poptart.sprinkles).to eq('brown')
     end
   end
 end

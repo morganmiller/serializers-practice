@@ -6,7 +6,12 @@ class PoptartsController < ApplicationController
   end
 
   def show
-    respond_with Poptart.find_by(id: params[:id])
+    poptart = Poptart.find_by(id: params[:id])
+    if params[:promotion] == 'halloween'
+      render json: poptart, serializer: HalloweenPoptartSerializer
+    else
+      respond_with poptart
+    end
   end
 
   def create

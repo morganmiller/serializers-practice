@@ -33,7 +33,8 @@ describe PoptartsController do
                     poptart: { flavor: 'boston creme', sprinkles: 'black and white' }
 
       expect(response).to have_http_status(:created)
-
+      # Expecting created status should be enough to assert that the resource was created in your database
+        
       poptart = JSON.parse(response.body)
       expect(poptart['flavor']).to eq('boston creme')
       expect(poptart['sprinkles']).to eq('black and white')

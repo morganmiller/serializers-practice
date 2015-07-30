@@ -10,7 +10,7 @@ describe PoptartsController do
       expect(response).to have_http_status(:ok)
       poptarts = JSON.parse(response.body)
       expect(poptarts.count).to eq(1)
-      
+
       poptart = poptarts['poptarts'].last
       expect(poptart['flavor']).to eq('strawberry')
       expect(poptart['sprinkles']).to eq('red')
